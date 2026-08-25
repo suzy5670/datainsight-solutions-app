@@ -141,14 +141,18 @@ else:
 
     elif selected_page == "Galerie Photos":
         st.title("Album photos")
-        st.write("Galerie d'animaux, alignée sur 3 colonnes :")
+        st.write("Galerie aéroports & aviation, alignée sur 3 colonnes :")
 
         sample_images = [
-            "https://static.streamlit.io/examples/cat.jpg",
-            "https://static.streamlit.io/examples/dog.jpg",
-            "https://static.streamlit.io/examples/owl.jpg",
+            ("https://images.unsplash.com/photo-1517400508447-f8dd518b86db?w=800&q=80", "Tableau des départs"),
+            ("https://images.unsplash.com/photo-1561101904-da649fcbf03f?w=800&q=80", "Couloir du terminal"),
+            ("https://images.unsplash.com/photo-1721592873149-9823d9dc6b40?w=800&q=80", "Atterrissage au crépuscule"),
+            ("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80", "Vue aérienne de l'aéroport"),
+            ("https://images.unsplash.com/photo-1504150558240-0b4fd8946624?w=800&q=80", "Voyageur avec bagages"),
+            ("https://images.unsplash.com/photo-1549897411-b06572cdf806?w=800&q=80", "Salle d'attente"),
+            ("https://images.unsplash.com/photo-1542296332-2e4473faf563?w=800&q=80", "Avion au terminal"),
         ]
         cols = st.columns(3)
-        for idx, img_url in enumerate(sample_images):
+        for idx, (img_url, caption) in enumerate(sample_images):
             with cols[idx % 3]:
-                st.image(img_url, caption=f"Image {idx + 1}", width="stretch")
+                st.image(img_url, caption=caption, width="stretch")
