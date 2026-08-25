@@ -141,7 +141,7 @@ else:
 
     elif selected_page == "Galerie Photos":
         st.title("Album photos")
-        st.write("Galerie aéroports & aviation, alignée sur 3 colonnes :")
+        st.write("Galerie aéroports & aviation :")
 
         sample_images = [
             ("https://images.unsplash.com/photo-1517400508447-f8dd518b86db?w=800&q=80", "Tableau des départs"),
