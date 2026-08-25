@@ -72,7 +72,7 @@ datainsight-solutions-app/
 - README.md
 -.gitignore
 
-
+- identifiant + mot de passe invité :  root + root123
 
 
 ## Difficultés rencontrées et solutions
