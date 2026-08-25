@@ -64,13 +64,13 @@ Le projet a suivi une progression en 6 guides, chacun validé avant de passer au
 Le dépôt final est organisé en **2 dossiers** pour séparer clairement les responsabilités :
 
 datainsight-solutions-app/
-├── streamlit/ # Le code de l'application
-│ ├── app.py
-│ ├── accounts.csv
-│ └── requirements.txt
-├── site_portfolio_data/ # Références aux portfolios de l'équipe
-│ └── README.md
-└── .gitignore
+-streamlit/ # Le code de l'application
+-app.py
+-accounts.csv
+-requirements.txt
+-site_portfolio_data/ # Références aux portfolios de l'équipe
+- README.md
+-.gitignore
 
 
 
