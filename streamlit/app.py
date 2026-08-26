@@ -136,6 +136,42 @@ else:
                 sns.heatmap(pivot, cmap="Blues", annot=False, ax=ax)
                 st.pyplot(fig)
 
+        st.divider()
+        st.subheader("Analyses complémentaires")
+
+        col_c, col_d = st.columns(2)
+        with col_c:
+            with st.container(border=True):
+                st.markdown("**Taux de croissance annuel (%)**")
+                evolution_annee = df_filtre.groupby("year")["passengers"].sum()
+                croissance = evolution_annee.pct_change().mul(100).round(1).dropna()
+                st.bar_chart(croissance)
+        with col_d:
+            with st.container(border=True):
+                st.markdown("**Indice de saisonnalité (écart à la moyenne, %)**")
+                moyenne_generale = df_filtre["passengers"].mean()
+                indice_saison = (
+                    df_filtre.groupby("month")["passengers"].mean() / moyenne_generale - 1
+                ).mul(100).round(1)
+                st.bar_chart(indice_saison)
+
+        with st.container(border=True):
+            st.markdown("**Top 3 / Flop 3 des mois (toutes années confondues)**")
+            par_mois_annee = df_filtre.groupby(["year", "month"])["passengers"].sum().reset_index()
+            col_top, col_flop = st.columns(2)
+            with col_top:
+                st.caption("Meilleurs mois")
+                st.dataframe(
+                    par_mois_annee.nlargest(3, "passengers").reset_index(drop=True),
+                    hide_index=True,
+                )
+            with col_flop:
+                st.caption("Mois les plus faibles")
+                st.dataframe(
+                    par_mois_annee.nsmallest(3, "passengers").reset_index(drop=True),
+                    hide_index=True,
+                )
+
         with st.expander("Voir les données brutes filtrées"):
             st.dataframe(df_filtre, hide_index=True)
 
